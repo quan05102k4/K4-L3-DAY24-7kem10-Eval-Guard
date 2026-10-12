@@ -1,0 +1,4 @@
+# Các file input được checker băm SHA-256 (metadata.source_sha256).
+# Thí nghiệm chạy trên Windows với bản CRLF; ép CRLF khi checkout trên mọi OS để hash khớp.
+fixtures/*.json text eol=crlf
+artifacts/answers_50q.json text eol=crlf
