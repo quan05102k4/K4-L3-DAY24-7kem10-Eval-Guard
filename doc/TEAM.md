@@ -8,7 +8,7 @@ Trưởng nhóm/người nộp: Nguyễn Minh Quân - 2A202602490
 
 Ngày lab/deadline áp dụng: 2026-10-12, 23:59 theo deadline mặc định (áp dụng điều chỉnh của key coach nếu có) — Asia/Ho_Chi_Minh (UTC+07:00)
 
-Commit dùng để chấm: SHA commit cuối của trưởng nhóm, ghi tại mục "Cập nhật sau khi nộp" và trong tin nhắn nộp bài
+Commit dùng để chấm: commit cuối trên `main` (commit cập nhật TEAM ngay sau `2b700cf`; SHA gửi kèm link nộp). Commit cuối trước deadline: `804c31c` (2026-10-12 23:58 +07:00)
 
 Mỗi nhóm nộp một repo. Điền đủ thành viên và một mục INDIVIDUAL cho từng người.
 
@@ -18,7 +18,7 @@ Mỗi nhóm nộp một repo. Điền đủ thành viên và một mục INDIVID
 |---|---|---|---|---|
 | 1 | Nguyễn Minh Quân | 2A202602490 | Trưởng nhóm; tích hợp m1–m5 (adapter m2 qdrant 1.9, m4 RAGAS + evaluator_models, m5 OpenAI song song); môi trường; sinh answers; Phase C Tasks 9a–12 trong `src/phase_c_guard.py`, chỉnh prompt self-check input, `blueprint.md`; TEAM; nộp bài | Commit `4803143` (pipeline + answers_50q.json), `8ea2feb` (.gitattributes), commit Phase C + blueprint + TEAM |
 | 2 | Ngô Văn Giáp | 2A202602644 | Phase A Tasks 1–4 trong `src/phase_a_ragas.py`; chạy RAGAS live; `failure_clusters.md` | Commit `edd007d` (phase A + ragas_50q.json + failure_clusters.md) |
-| 3 | Bùi Phương Duy | 2A202602684 | Phase B Tasks 5–8 trong `src/phase_b_judge.py`; chạy judge live; `bias_report.md` | Commit Phase B (phase_b_judge.py + judge_results.json + bias_report.md) |
+| 3 | Bùi Phương Duy | 2A202602684 | Phase B Tasks 5–8 trong `src/phase_b_judge.py`; chạy judge live; `bias_report.md` | Commit `2b700cf` (phase_b_judge.py + judge_results.json + bias_report.md), push sau deadline, xem mục Cập nhật sau khi nộp |
 
 Người tích hợp/chạy batch/nộp link: Nguyễn Minh Quân, chạy setup và ba runner live trên máy Windows của nhóm, kiểm tra `scripts/check_lab.py`, push và nộp link.
 
@@ -59,4 +59,8 @@ Models/Qdrant/50 answers đã chuẩn bị: Qdrant `qdrant/qdrant:v1.9.7` qua do
 
 ## Cập nhật sau khi nộp
 
-Chưa có cập nhật sau khi nộp. Trưởng nhóm ghi SHA commit nộp bài (lệnh `git rev-parse HEAD` sau commit cuối) vào tin nhắn nộp link; nếu sửa sau deadline sẽ ghi commit, thời điểm và lý do tại đây.
+- Trước deadline 23:59 ngày 2026-10-12 (Asia/Ho_Chi_Minh), `main` có các commit `4803143`, `8ea2feb` (Nguyễn Minh Quân), `edd007d` (Ngô Văn Giáp) và `804c31c` (Nguyễn Minh Quân, 23:58). Ở thời điểm đó Phase B chưa được push.
+- Commit `2b700cf` (Phase B: `src/phase_b_judge.py`, `artifacts/judge_results.json`, `doc/reports/bias_report.md`) do Bùi Phương Duy push lúc 00:57:37 ngày 2026-10-13 (+07:00), **sau deadline**. Lý do: card mạng của máy Lenovo của Duy bị hỏng nên không kết nối được để push đúng hạn. Trước đó lúc 00:43 Duy push nhầm nguyên file zip, sau đó đã thay bằng commit `2b700cf` chứa đúng 3 file.
+- Nội dung 3 file giống hệt kết quả đã chạy live trước hạn: `artifacts/judge_results.json` có `metadata.created_at` = 2026-10-12T16:31:04Z (23:31 giờ Việt Nam). Không có thay đổi nào khác về code hay số liệu sau deadline ngoài commit này và commit cập nhật TEAM này.
+- Sau khi đồng bộ, `python scripts/check_lab.py --with-tests` cho 0 failed checks, 86 tests pass.
+- Việc dùng bản cập nhật để chấm theo quyết định của key coach.
